@@ -44,6 +44,7 @@ mod tests {
         assert!(page.is_ok());
 
         let page = page.unwrap();
+        println!("{}", page);
         assert!(!page.contains("<h2>Erro 404</h2>"));
         assert!(page.contains("paginasLista = \""));
     }
