@@ -22,7 +22,7 @@ dependencies = [
 [[package]]
 name = "ebi_source"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi-core.git#af40e09c94134b6b35dbc00517c2f3d656ce72c5"
+source = "git+ssh://git@github.com/jansen44/ebi.git#a60a66e7c84b0d8dfdcadb604484533031a3d66d"
 dependencies = [
  "async-ffi",
  "async-trait",
@@ -33,7 +33,7 @@ dependencies = [
 [[package]]
 name = "ebi_source_macros"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi-core.git#af40e09c94134b6b35dbc00517c2f3d656ce72c5"
+source = "git+ssh://git@github.com/jansen44/ebi.git#a60a66e7c84b0d8dfdcadb604484533031a3d66d"
 dependencies = [
  "ebi_source",
  "proc-macro2",

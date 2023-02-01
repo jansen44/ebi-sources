@@ -8,5 +8,5 @@ name = "yabu"
 crate-type=["dylib"]
 
 [dependencies]
-ebi_source = { git = "ssh://git@github.com/jansen44/ebi-core.git" }
-ebi_source_macros = { git = "ssh://git@github.com/jansen44/ebi-core.git" }
+ebi_source = { git = "ssh://git@github.com/jansen44/ebi.git" }
+ebi_source_macros = { git = "ssh://git@github.com/jansen44/ebi.git" }
