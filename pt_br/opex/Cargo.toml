@@ -8,5 +8,10 @@ name = "opex"
 crate-type=["dylib"]
 
 [dependencies]
+anyhow = "1.0.68"
 ebi_source = { git = "ssh://git@github.com/jansen44/ebi.git" }
 ebi_source_macros = { git = "ssh://git@github.com/jansen44/ebi.git" }
+reqwest = { version = "0.11", features = ["blocking"] }
+
+[dev-dependencies]
+tokio = { version = "1.25.0", features = ["macros"] }

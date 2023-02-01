@@ -1,3 +1,5 @@
+mod client;
+
 use ebi_source::prelude::*;
 use ebi_source::{locale, Manga, Source};
 use ebi_source_macros::ebi_plugin;
@@ -5,7 +7,6 @@ use ebi_source_macros::ebi_plugin;
 const SOURCE_IDENTIFIER: &str = "opex";
 const SOURCE_TITLE: &str = "One Piece Ex";
 const SOURCE_DESCRIPTION: &str = "One Piece Ex | De fã para fã";
-const _BASE_URL: &str = "https://onepieceex.net";
 
 #[ebi_plugin]
 fn source() -> Source {
@@ -66,22 +67,3 @@ async fn popular_manga() -> Vec<Manga> {
 async fn hot_manga() -> Vec<Manga> {
     manga_list().await
 }
-
-// async fn search_manga(&self, manga_title: &str) -> Result<Vec<Manga>> {
-//     todo!()
-// }
-
-// async fn get_manga(&self, manga_identifier: &str) -> Result<Manga> {
-//     todo!()
-// }
-
-// async fn chapter_list(&self, manga: Manga) -> Result<Vec<Chapter>> {
-//     todo!()
-// }
-// async fn chapter(&self, manga: Manga, chapter: usize) -> Result<Option<Chapter>> {
-//     todo!()
-// }
-
-// async fn page_url_list(&self, chapter: Chapter) -> Result<Vec<String>> {
-//     todo!()
-// }
