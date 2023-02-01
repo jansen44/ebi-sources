@@ -12,7 +12,7 @@ const ACCEPT_LANGUAGE_HEADER: &str = "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0
 
 pub async fn opex_html_page(page_url: &str) -> Result<String> {
     let url = format!("{}{}", BASE_URL, page_url);
-
+    println!("{url}");
     let mut headers = HeaderMap::new();
     headers.insert(header::ACCEPT, ACCEPT_HEADER.parse()?);
     headers.insert(header::REFERER, REFERER_HEADER.parse()?);
