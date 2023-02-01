@@ -1,0 +1,12 @@
+[package]
+name = "opex"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "opex"
+crate-type=["dylib"]
+
+[dependencies]
+ebi_source = { git = "ssh://git@github.com/jansen44/ebi-core.git" }
+ebi_source_macros = { git = "ssh://git@github.com/jansen44/ebi-core.git" }

@@ -1,0 +1,5 @@
+[workspace]
+members = [
+  "pt_br/opex",
+  "pt_br/yabu",
+]
