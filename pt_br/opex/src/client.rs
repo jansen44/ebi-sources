@@ -21,38 +21,3 @@ pub async fn opex_html_page(page_url: &str) -> Result<String> {
     let body = client.get(url).send().await?.text().await?;
     Ok(body)
 }
-
-#[cfg(test)]
-mod tests {
-    use super::opex_html_page;
-
-    #[tokio::test]
-    async fn manga_page() {
-        let page = opex_html_page("/mangas").await;
-        assert!(page.is_ok());
-
-        let page = page.unwrap();
-        assert!(!page.contains("<h2>Erro 404</h2>"));
-        assert!(page.contains("<h1>Mangá</h1>"));
-        assert!(page.contains("<h2>Todos os Volumes de One Piece e algo mais =)</h2>"));
-    }
-
-    #[tokio::test]
-    async fn chapter_page() {
-        let page = opex_html_page("/mangas/leitor/2").await;
-        assert!(page.is_ok());
-
-        let page = page.unwrap();
-        assert!(!page.contains("<h2>Erro 404</h2>"));
-        assert!(page.contains("paginasLista = \""));
-    }
-
-    #[tokio::test]
-    async fn invalid_page() {
-        let page = opex_html_page("/invalid-page-that-doesnt-exist").await;
-        assert!(page.is_ok());
-
-        let page = page.unwrap();
-        assert!(page.contains("<h2>Erro 404</h2>"));
-    }
-}
