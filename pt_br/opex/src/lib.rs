@@ -2,7 +2,7 @@ pub mod client;
 pub mod parser;
 
 use ebi_source::prelude::*;
-use ebi_source::{locale, Manga, Source};
+use ebi_source::{locale, Chapter, Manga, Source};
 use ebi_source_macros::ebi_plugin;
 
 const SOURCE_IDENTIFIER: &str = "opex";
@@ -55,16 +55,7 @@ pub fn manga_list() -> Vec<Manga> {
 }
 
 #[ebi_plugin]
-pub fn latest_manga() -> Vec<Manga> {
-    manga_list()
-}
-
-#[ebi_plugin]
-pub fn popular_manga() -> Vec<Manga> {
-    manga_list()
-}
-
-#[ebi_plugin]
-pub fn hot_manga() -> Vec<Manga> {
-    manga_list()
+pub fn chapter_list(manga: Manga) -> Vec<Chapter> {
+    let manga_page = client::opex_html_page(&manga.url).unwrap();
+    parser::manga::chapter_list(&manga.identifier, &manga_page).unwrap()
 }
