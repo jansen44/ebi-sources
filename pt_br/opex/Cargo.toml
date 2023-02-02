@@ -5,11 +5,12 @@ edition = "2021"
 
 [lib]
 name = "opex"
-crate-type=["dylib"]
+crate-type=["dylib", "lib"]
 
 [dependencies]
-anyhow = "1.0.68"
-reqwest = { version = "0.11" }
+anyhow = "1.0"
+scraper = "0.14"
+ureq = "2.6"
 
 ebi_source = { git = "ssh://git@github.com/jansen44/ebi.git" }
 ebi_source_macros = { git = "ssh://git@github.com/jansen44/ebi.git" }

@@ -1,4 +1,5 @@
-mod client;
+pub mod client;
+pub mod parser;
 
 use ebi_source::prelude::*;
 use ebi_source::{locale, Manga, Source};
@@ -9,7 +10,7 @@ const SOURCE_TITLE: &str = "One Piece Ex";
 const SOURCE_DESCRIPTION: &str = "One Piece Ex | De fã para fã";
 
 #[ebi_plugin]
-fn source() -> Source {
+pub fn source() -> Source {
     Source {
         identifier: SOURCE_IDENTIFIER.to_owned(),
         title: SOURCE_TITLE.to_owned(),
@@ -19,7 +20,7 @@ fn source() -> Source {
 }
 
 #[ebi_plugin]
-async fn manga_list() -> Vec<Manga> {
+pub fn manga_list() -> Vec<Manga> {
     let main = Manga {
         identifier: String::from("main"),
         title: String::from("One Piece"),
@@ -54,16 +55,16 @@ async fn manga_list() -> Vec<Manga> {
 }
 
 #[ebi_plugin]
-async fn latest_manga() -> Vec<Manga> {
-    manga_list().await
+pub fn latest_manga() -> Vec<Manga> {
+    manga_list()
 }
 
 #[ebi_plugin]
-async fn popular_manga() -> Vec<Manga> {
-    manga_list().await
+pub fn popular_manga() -> Vec<Manga> {
+    manga_list()
 }
 
 #[ebi_plugin]
-async fn hot_manga() -> Vec<Manga> {
-    manga_list().await
+pub fn hot_manga() -> Vec<Manga> {
+    manga_list()
 }
