@@ -1,4 +1,4 @@
-use ebi_source::Chapter;
+use ebi_source::{error::SourceError, Chapter};
 
 use scraper::{ElementRef, Html};
 
@@ -125,15 +125,15 @@ fn chapter_from_element(
     identifier: &str,
     element: ElementRef,
     idx: usize,
-) -> anyhow::Result<Chapter> {
+) -> Result<Chapter, SourceError> {
     let info = match identifier {
         "main" => Ok(main_chapter_info_from_element(element)),
         "sbs" => Ok(sbs_chapter_info_from_element(element)),
         "covers" => Ok(covers_chapter_info_from_element(element)),
-        _ => Err(anyhow::anyhow!("INVALID_MANGA_IDENTIFIER")),
+        _ => Err(SourceError::InvalidIdentifier),
     }?;
 
-    let (id, title, url) = info?;
+    let (id, title, url) = info.map_err(|_| SourceError::Serialize)?;
     let chapter = match id {
         Some(id) => id,
         None => idx as u16,
@@ -148,15 +148,11 @@ fn chapter_from_element(
     })
 }
 
-pub fn chapter_list(identifier: &str, html: &str) -> anyhow::Result<Vec<Chapter>> {
+pub fn chapter_list(identifier: &str, html: &str) -> Result<Vec<Chapter>, SourceError> {
     let html = Html::parse_document(html);
 
-    let selector = match selectors::chapter_list_selector(identifier) {
-        Some(selector) => selector,
-        None => {
-            return Ok(vec![]);
-        }
-    };
+    let selector =
+        selectors::chapter_list_selector(identifier).ok_or(SourceError::InvalidIdentifier)?;
 
     html.select(&selector)
         .into_iter()

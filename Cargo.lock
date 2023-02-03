@@ -129,16 +129,17 @@ dependencies = [
 [[package]]
 name = "ebi_source"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#556eed209719db7905183e7425de5bf77906559d"
+source = "git+ssh://git@github.com/jansen44/ebi.git#e1e37174e0bb497f986d1b50b28bd5350a77e31a"
 dependencies = [
  "serde",
  "serde_json",
+ "thiserror",
 ]
 
 [[package]]
 name = "ebi_source_macros"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#556eed209719db7905183e7425de5bf77906559d"
+source = "git+ssh://git@github.com/jansen44/ebi.git#e1e37174e0bb497f986d1b50b28bd5350a77e31a"
 dependencies = [
  "ebi_source",
  "proc-macro2",
@@ -820,6 +821,26 @@ name = "thin-slice"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8eaa81235c7058867fa8c0e7314f33dcce9c215f535d1913822a2b3f5e289f3c"
+
+[[package]]
+name = "thiserror"
+version = "1.0.38"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a9cd18aa97d5c45c6603caea1da6628790b37f7a34b6ca89522331c5180fed0"
+dependencies = [
+ "thiserror-impl",
+]
+
+[[package]]
+name = "thiserror-impl"
+version = "1.0.38"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1fb327af4685e4d03fa8cbcf1716380da910eeb2bb8be417e7f9fd3fb164f36f"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "tinyvec"

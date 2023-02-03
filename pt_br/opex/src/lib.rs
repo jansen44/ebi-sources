@@ -1,6 +1,7 @@
 pub mod client;
 pub mod parser;
 
+use ebi_source::error::SourceError;
 use ebi_source::prelude::*;
 use ebi_source::{locale, Chapter, Manga, Source};
 use ebi_source_macros::ebi_plugin;
@@ -20,7 +21,7 @@ pub fn source() -> Source {
 }
 
 #[ebi_plugin]
-pub fn manga_list() -> Vec<Manga> {
+pub fn manga_list() -> Result<Vec<Manga>, SourceError> {
     let main = Manga {
         identifier: String::from("main"),
         title: String::from("One Piece"),
@@ -51,11 +52,11 @@ pub fn manga_list() -> Vec<Manga> {
         source_identifier: SOURCE_IDENTIFIER.to_string(),
     };
 
-    vec![main.into(), cover.into(), sbs.into()]
+    Ok(vec![main.into(), cover.into(), sbs.into()])
 }
 
 #[ebi_plugin]
-pub fn chapter_list(manga: Manga) -> Vec<Chapter> {
-    let manga_page = client::opex_html_page(&manga.url).unwrap();
-    parser::manga::chapter_list(&manga.identifier, &manga_page).unwrap()
+pub fn chapter_list(manga: Manga) -> Result<Vec<Chapter>, SourceError> {
+    let manga_page = client::opex_html_page(&manga.url)?;
+    parser::manga::chapter_list(&manga.identifier, &manga_page)
 }
