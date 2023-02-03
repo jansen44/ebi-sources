@@ -18,8 +18,8 @@ fn source() -> Source {
 }
 
 #[ebi_plugin]
-async fn manga_list() -> Vec<Manga> {
-    vec![]
+fn manga_list() -> Result<Vec<Manga>, SourceError> {
+    Ok(vec![])
 }
 
 // pub struct Source;
