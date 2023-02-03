@@ -15,23 +15,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2cb2f989d18dd141ab8ae82f64d1a8cdd37e0840f73a406896cf5e99502fab61"
 
 [[package]]
-name = "async-ffi"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7e73758d044aab514155e8888ed142d408498712c6f82f24e3ee0650d5943b0"
-
-[[package]]
-name = "async-trait"
-version = "0.1.64"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1cd7fce9ba8c3c042128ce72d8b2ddbf3a05747efb67ea0313c635e10bda47a2"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -146,10 +129,8 @@ dependencies = [
 [[package]]
 name = "ebi_source"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#a60a66e7c84b0d8dfdcadb604484533031a3d66d"
+source = "git+ssh://git@github.com/jansen44/ebi.git#556eed209719db7905183e7425de5bf77906559d"
 dependencies = [
- "async-ffi",
- "async-trait",
  "serde",
  "serde_json",
 ]
@@ -157,7 +138,7 @@ dependencies = [
 [[package]]
 name = "ebi_source_macros"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#a60a66e7c84b0d8dfdcadb604484533031a3d66d"
+source = "git+ssh://git@github.com/jansen44/ebi.git#556eed209719db7905183e7425de5bf77906559d"
 dependencies = [
  "ebi_source",
  "proc-macro2",
@@ -338,9 +319,9 @@ checksum = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
 
 [[package]]
 name = "miniz_oxide"
-version = "0.6.4"
+version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2e212582ede878b109755efd0773a4f0f4ec851584cf0aefbeb4d9ecc114822"
+checksum = "b275950c28b37e794e8c55d88aeb5e139d0ce23fdbbeda68f8d7174abdf9e8fa"
 dependencies = [
  "adler",
 ]
@@ -851,9 +832,9 @@ dependencies = [
 
 [[package]]
 name = "tinyvec_macros"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cda74da7e1a664f795bb1f8a87ec406fb89a02522cf6e50620d016add6dbbf5c"
+checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "unicode-bidi"
