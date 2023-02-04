@@ -5,7 +5,7 @@ edition = "2021"
 
 [lib]
 name = "yabu"
-crate-type=["dylib"]
+crate-type=["cdylib"]
 
 [dependencies]
 ebi_source = { git = "ssh://git@github.com/jansen44/ebi.git" }
