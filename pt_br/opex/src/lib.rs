@@ -56,7 +56,10 @@ pub fn manga_list() -> Result<Vec<Manga>, SourceError> {
 }
 
 #[ebi_plugin]
-pub fn chapter_list(manga: Manga) -> Result<Vec<Chapter>, SourceError> {
-    let manga_page = client::opex_html_page(&manga.url)?;
-    parser::manga::chapter_list(&manga.identifier, &manga_page)
+pub fn chapter_list(
+    manga_identifier: String,
+    manga_url: String,
+) -> Result<Vec<Chapter>, SourceError> {
+    let manga_page = client::opex_html_page(&manga_url)?;
+    parser::manga::chapter_list(&manga_identifier, &manga_page)
 }
