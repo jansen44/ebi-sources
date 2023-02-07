@@ -11,13 +11,13 @@ const SOURCE_TITLE: &str = "One Piece Ex";
 const SOURCE_DESCRIPTION: &str = "One Piece Ex | De fã para fã";
 
 #[ebi_plugin]
-pub fn source() -> Source {
-    Source {
+pub fn source() -> Result<Source, SourceError> {
+    Ok(Source {
         identifier: SOURCE_IDENTIFIER.to_owned(),
         title: SOURCE_TITLE.to_owned(),
         description: SOURCE_DESCRIPTION.to_owned(),
         locale: locale::Locale::PtBr,
-    }
+    })
 }
 
 #[ebi_plugin]

@@ -8,13 +8,13 @@ const SOURCE_DESCRIPTION: &str = "Manga Yabu! - Ler Mangás Online";
 const _BASE_URL: &str = "https://mangayabu.top";
 
 #[ebi_plugin]
-fn source() -> Source {
-    Source {
+fn source() -> Result<Source, SourceError> {
+    Ok(Source {
         identifier: SOURCE_IDENTIFIER.to_owned(),
         title: SOURCE_TITLE.to_owned(),
         description: SOURCE_DESCRIPTION.to_owned(),
         locale: locale::Locale::PtBr,
-    }
+    })
 }
 
 #[ebi_plugin]

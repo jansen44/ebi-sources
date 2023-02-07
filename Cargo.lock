@@ -129,7 +129,7 @@ dependencies = [
 [[package]]
 name = "ebi_source"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#66ed32719a5c68de79c77ac886792d8aa1b6d046"
+source = "git+ssh://git@github.com/jansen44/ebi.git#3369982c3d05a6ce360f96e8f9f5de54f9b433d6"
 dependencies = [
  "serde",
  "serde_json",
@@ -139,7 +139,7 @@ dependencies = [
 [[package]]
 name = "ebi_source_macros"
 version = "0.1.0"
-source = "git+ssh://git@github.com/jansen44/ebi.git#66ed32719a5c68de79c77ac886792d8aa1b6d046"
+source = "git+ssh://git@github.com/jansen44/ebi.git#3369982c3d05a6ce360f96e8f9f5de54f9b433d6"
 dependencies = [
  "ebi_source",
  "proc-macro2",

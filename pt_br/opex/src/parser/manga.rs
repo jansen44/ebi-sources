@@ -144,7 +144,7 @@ fn chapter_from_element(
         title,
         url,
         manga_identifier: String::from(identifier),
-        source_identifier: crate::source().identifier,
+        source_identifier: crate::source().unwrap().identifier,
     })
 }
 
