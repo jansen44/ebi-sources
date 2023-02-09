@@ -1,6 +1,6 @@
 use ebi_source::error::SourceError;
 
-const BASE_URL: &str = "https://onepieceex.net";
+pub const BASE_URL: &str = "https://onepieceex.net";
 
 const ACCEPT_HEADER: &str = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
 const REFERER_HEADER: &str = "https://onepieceex.net/";
