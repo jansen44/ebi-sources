@@ -1,11 +1,18 @@
 use ebi_source::prelude::{serde_json, SourceError};
+use scraper::Html;
 
-use scraper::{Html, Selector};
+mod selectors {
+    use scraper::Selector;
+
+    pub fn script_selector() -> Selector {
+        Selector::parse("#leitor-opex > strong > script").unwrap()
+    }
+}
 
 pub fn chapter_page_list(chapter_page_body: &str) -> Result<Vec<String>, SourceError> {
     let page = Html::parse_document(chapter_page_body);
 
-    let script_selector = Selector::parse("#leitor-opex > strong > script").unwrap();
+    let script_selector = selectors::script_selector();
     let script_elem = page
         .select(&script_selector)
         .next()
