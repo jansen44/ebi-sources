@@ -2,7 +2,6 @@ pub mod client;
 pub mod parser;
 
 use ebi_source::error::SourceError;
-use ebi_source::prelude::*;
 use ebi_source::{locale, Chapter, Manga, Source};
 use ebi_source_macros::ebi_plugin;
 
@@ -11,7 +10,7 @@ const SOURCE_TITLE: &str = "One Piece Ex";
 const SOURCE_DESCRIPTION: &str = "One Piece Ex | De fã para fã";
 
 #[ebi_plugin]
-pub fn source() -> Result<Source, SourceError> {
+pub fn source_info() -> Result<Source, SourceError> {
     Ok(Source {
         identifier: SOURCE_IDENTIFIER.to_owned(),
         title: SOURCE_TITLE.to_owned(),
@@ -29,7 +28,7 @@ pub fn manga_list() -> Result<Vec<Manga>, SourceError> {
         url: String::from("/mangas"),
         genres: vec![String::from("shounen"), String::from("fantasy")],
         description: None,
-        source_identifier: SOURCE_IDENTIFIER.to_string(),
+        source: SOURCE_IDENTIFIER.to_string(),
     };
 
     let cover = Manga {
@@ -39,7 +38,7 @@ pub fn manga_list() -> Result<Vec<Manga>, SourceError> {
         url: String::from("/historias-de-capa"),
         genres: vec![String::from("shounen"), String::from("fantasy")],
         description: None,
-        source_identifier: SOURCE_IDENTIFIER.to_string(),
+        source: SOURCE_IDENTIFIER.to_string(),
     };
 
     let sbs = Manga {
@@ -49,7 +48,7 @@ pub fn manga_list() -> Result<Vec<Manga>, SourceError> {
         url: String::from("/sbs"),
         genres: vec![String::from("shounen"), String::from("fantasy")],
         description: None,
-        source_identifier: SOURCE_IDENTIFIER.to_string(),
+        source: SOURCE_IDENTIFIER.to_string(),
     };
 
     Ok(vec![main.into(), cover.into(), sbs.into()])
@@ -66,7 +65,7 @@ pub fn chapter_list(
 
 #[ebi_plugin]
 pub fn chapter_page_list(
-    _chapter: u16,
+    _chapter: u32,
     chapter_url: String,
     _manga_identifier: String,
 ) -> Result<Vec<String>, SourceError> {

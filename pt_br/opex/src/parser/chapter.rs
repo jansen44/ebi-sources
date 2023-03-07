@@ -1,4 +1,4 @@
-use ebi_source::prelude::{serde_json, SourceError};
+use ebi_source::error::SourceError;
 use scraper::Html;
 
 mod selectors {

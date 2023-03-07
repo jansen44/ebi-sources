@@ -1,4 +1,4 @@
-use ebi_source::prelude::*;
+use ebi_source::error::SourceError;
 use ebi_source::{locale, Manga, Source};
 use ebi_source_macros::ebi_plugin;
 
@@ -8,7 +8,7 @@ const SOURCE_DESCRIPTION: &str = "Manga Yabu! - Ler Mangás Online";
 const _BASE_URL: &str = "https://mangayabu.top";
 
 #[ebi_plugin]
-fn source() -> Result<Source, SourceError> {
+fn source_info() -> Result<Source, SourceError> {
     Ok(Source {
         identifier: SOURCE_IDENTIFIER.to_owned(),
         title: SOURCE_TITLE.to_owned(),

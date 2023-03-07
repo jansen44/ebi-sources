@@ -70,9 +70,9 @@ mod attrs {
     }
 }
 
-type ChapterInfo = (Option<u16>, String, String);
+type ChapterInfo = (Option<u32>, String, String);
 
-fn chapter_and_title_from_raw_title(base_title: &str) -> anyhow::Result<(u16, String)> {
+fn chapter_and_title_from_raw_title(base_title: &str) -> anyhow::Result<(u32, String)> {
     let mut id = "";
     let mut title = "";
 
@@ -136,15 +136,15 @@ fn chapter_from_element(
     let (id, title, url) = info.map_err(|_| SourceError::Serialize)?;
     let chapter = match id {
         Some(id) => id,
-        None => idx as u16,
+        None => idx as u32,
     };
 
     Ok(Chapter {
         chapter,
         title,
         url,
-        manga_identifier: String::from(identifier),
-        source_identifier: crate::source().unwrap().identifier,
+        manga: String::from(identifier),
+        source: crate::source_info().unwrap().identifier,
     })
 }
 

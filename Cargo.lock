@@ -353,6 +353,8 @@ dependencies = [
  "ebi_source",
  "ebi_source_macros",
  "scraper",
+ "serde",
+ "serde_json",
  "ureq",
 ]
 
